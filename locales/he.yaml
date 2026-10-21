@@ -10,7 +10,7 @@ approval:
   prompt_short: '      בחירה [o/s/D]: '
   choose_smart_deny: '      [o] פעם אחת  |  [d] דחייה'
   prompt_smart_deny: '      בחירה [o/D]: '
-  smart_deny_once_inputs: o,once,פעם אחת,כן
+  smart_deny_once_inputs: o,once,פעם אחת
   smart_deny_deny_inputs: d,deny,דחייה,לא
   timeout: '      ⏱ לא התקבלה תשובה בתוך {waited} — הפקודה לא הורצה. אפשר לבקש שוב כדי לנסות מחדש, או להגדיל את המגבלה: hermes config set approvals.timeout {suggested}'
   allowed_once: '      ✓ אושר פעם אחת'
