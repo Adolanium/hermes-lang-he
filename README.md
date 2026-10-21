@@ -1,32 +1,44 @@
-<div align="center" dir="auto">
+<div align="center">
+
+  <a href="https://github.com/NousResearch/hermes-agent">
+    <img src="https://github.com/user-attachments/assets/ac2f5702-c842-4b2e-9340-737481fa0ece" width="96" height="96" alt="Nous Research Hermes mark" />
+  </a>
 
   # Hermes in Hebrew · עברית
 
-  **A Hebrew language pack for Hermes Agent: the CLI, the messaging gateway, the TUI and Hermes Desktop.**
+  **Hermes, right to left.**
 
-  Right-to-left layout in Desktop, Hebrew prompts in the terminal, Hebrew replies from the gateway's built-in messages.
+  A Hebrew language pack for Hermes Agent: the CLI, the messaging gateway, the TUI and Hermes Desktop.
+  Desktop flips to a right-to-left layout; prompts, replies and tips come back in Hebrew.
 
   <sub>POWERED BY <a href="https://github.com/NousResearch/hermes-agent">HERMES AGENT</a> &nbsp;·&nbsp; COMMUNITY PLUGIN &nbsp;·&nbsp; VERSION 0.1.0</sub>
 
+  <br /><br />
+
+  [What it covers](#what-it-covers) &nbsp;·&nbsp; [Install it](#install) &nbsp;·&nbsp; [What it does on your machine](#what-it-does-on-your-machine)
+
 </div>
+
+![A marble Hermes reads a mirrored, right-to-left window of dithered glyphs](assets/catalog-banner.png)
 
 ## What it covers
 
 Hermes does not ship Hebrew, so this pack brings all three catalogs:
 
-| Surface | File | Covers |
-| --- | --- | --- |
-| Core | `locales/he.yaml` | CLI prompts and messages, approval prompts, gateway replies, platform messages, tips |
-| TUI | `locales/he.tui.yaml` | `hermes --tui`: status bar, composer, hotkey help, prompts |
-| Desktop | `locales/he.desktop.yaml` | Hermes Desktop, with the layout flipped to right-to-left |
+| Surface | File | Translated | Covers |
+| --- | --- | --- | --- |
+| Core | `locales/he.yaml` | 3,396 of 3,486 | CLI prompts and messages, approval prompts, gateway replies, platform messages, tips |
+| TUI | `locales/he.tui.yaml` | 1,331 of 1,356 | `hermes --tui`: status bar, composer, hotkey help, prompts |
+| Desktop | `locales/he.desktop.yaml` | 5,153 of 5,245 | Hermes Desktop, with the layout flipped to right-to-left |
 
-Each file's header says how many keys it translates and which Hermes commit it was checked against. Anything the pack does not translate falls back to English, so a newer Hermes never shows a blank label.
+Counts are against Hermes `main` at the commit named in each file's header. Anything the pack does not translate falls back to English, so a newer Hermes never shows a blank label.
 
 What stays in English:
 
 - What the agent itself writes. Ask it to answer in Hebrew in your prompt or in `SOUL.md`.
 - Commands, flags, config keys, environment variables, file paths and product names, so they still match what you type.
-- A handful of Desktop and TUI labels whose English wording changes with an argument (Show/Hide, on/off). The pack format can only carry one wording for those, so they keep the correct English text instead of a Hebrew one that would be wrong half the time.
+- Answer letters the code matches on (`[o]`, `[s]`, `[a]`, `[d]` in approval prompts), and markers Hermes reads back.
+- A handful of Desktop and TUI labels whose English wording changes with an argument (Show/Hide, on/off). The pack format carries one wording per label, so those keep the correct English text instead of a Hebrew one that would be wrong half the time.
 
 ## Install
 
@@ -41,7 +53,20 @@ The pack needs Hermes Agent 0.21.6 or later.
 
 ## What it does on your machine
 
-Nothing beyond adding text. The pack is three YAML catalogs and a manifest. It makes no network calls, reads nothing outside its own folder and runs no code. `__init__.py` exists only so Desktop's "Install from Git" accepts the pack ([hermes-agent#138118](https://github.com/NousResearch/hermes-agent/issues/138118)); its `register()` does nothing. Installing the pack never changes your language: you opt in with `display.language`.
+Nothing beyond adding text.
+
+- Three YAML catalogs and a manifest. No network calls, no files read outside its own folder, no shell commands, no background processes, no telemetry.
+- `__init__.py` exists only so Desktop's "Install from Git" accepts the pack ([hermes-agent#138118](https://github.com/NousResearch/hermes-agent/issues/138118)); its `register()` does nothing.
+- Installing the pack never changes your language. You opt in with `display.language`.
+
+## Translation notes
+
+- Gender-neutral wording throughout: impersonal forms ("יש ל…", "אפשר ל…") and verbal nouns for buttons ("שמירה", "סגירה").
+- Terms: session = סשן, skill = מיומנות, plugin = תוסף, profile = פרופיל, provider = ספק, agent = סוכן, subagent = סוכן משנה.
+- Product names stay in Latin script, joined with a hyphen when Hebrew adds a prefix ("ה-backend", "ב-Stripe").
+- The Desktop catalog started from the Hebrew translation proposed in [hermes-agent#124840](https://github.com/NousResearch/hermes-agent/pull/124840), brought up to date with current Hermes.
+
+Corrections are welcome as issues or pull requests.
 
 ## Keeping it current
 
@@ -53,20 +78,25 @@ python tools/sync_keys.py ../hermes-agent --missing missing.txt   # list untrans
 python tools/sync_keys.py ../hermes-agent --fix                   # drop keys Hermes no longer has
 ```
 
-Then check the pack with Hermes's own validator:
+Then check the pack the same way the catalog does:
 
 ```sh
 hermes plugins validate .
 ```
 
-## Translation notes
+<br />
 
-- Gender-neutral wording throughout: impersonal forms ("יש ל…", "אפשר ל…") and verbal nouns for buttons ("שמירה", "סגירה").
-- Terms: session = סשן, skill = מיומנות, plugin = תוסף, profile = פרופיל, provider = ספק, agent = סוכן.
-- The Desktop catalog started from the Hebrew translation proposed in [hermes-agent#124840](https://github.com/NousResearch/hermes-agent/pull/124840), brought up to date with current Hermes.
+<div align="center">
+  <strong>Hermes in Hebrew</strong><br />
+  <sub>The same agent, right to left.</sub>
+</div>
 
-Corrections are welcome as issues or pull requests.
+<br />
 
 ## License
 
-MIT
+[MIT](LICENSE).
+
+> **Community project**
+>
+> Hermes in Hebrew is an independent community plugin. It is not affiliated with, endorsed by, sponsored by, or officially associated with [Nous Research](https://github.com/NousResearch) or the [Hermes Agent project](https://github.com/NousResearch/hermes-agent). Hermes, Hermes Agent and Nous Research are names and marks belonging to their respective owners.
